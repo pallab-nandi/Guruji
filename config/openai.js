@@ -1,6 +1,10 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const { Configuration, OpenAIApi } = require('openai');
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: process.env.API_KEY
 });
 
 const openAi = new OpenAIApi(configuration);
