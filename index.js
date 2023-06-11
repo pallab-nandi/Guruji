@@ -2,6 +2,7 @@ const { Client, Events, GatewayIntentBits } = require('discord.js');
 const { TOKEN } = require('./config/token');
 
 const aiPrompt = require('./events/aiPrompt');
+const { keepAlive } = require('./config/keepAlive');
 
 const client = new Client({
   intents: [
@@ -24,4 +25,5 @@ client.once(Events.ClientReady, bot => {
 
 client.on(Events.MessageCreate, aiPrompt.ques);
 
+keepAlive();
 client.login(TOKEN);
