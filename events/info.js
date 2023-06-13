@@ -1,5 +1,5 @@
 const embedInfo = {
-  title: "Hi! This is Guruji. Your smart AI friend",
+  title: "Hi! This is Guruji. Your smart AI friend developed by @rubixcode",
   description: "I am here to help you with anything you like.\nYou want someone to chat with you or have some question in mind? Just ask me.\nOhh, I guess you want me to draw something for you!\nDon't worry I can do that too. Just follow the command!",
   color: 15161609,
   author: {
