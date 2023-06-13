@@ -1,8 +1,9 @@
 const { Client, Events, GatewayIntentBits } = require('discord.js');
 const { TOKEN } = require('./config/token');
 
-const aiPrompt = require('./events/aiPrompt');
-const { keepAlive } = require('./config/keepAlive');
+const chat = require('./events/chat');
+const draw = require('./events/draw');
+const desc = require('./events/info');
 
 const client = new Client({
   intents: [
@@ -23,7 +24,13 @@ client.once(Events.ClientReady, bot => {
 //   }
 // })
 
-client.on(Events.MessageCreate, aiPrompt.ques);
+//chatting system
+client.on(Events.MessageCreate, chat.ques);
 
-keepAlive();
+//image system
+client.on(Events.MessageCreate, draw.imagine);
+
+//info system
+client.on(Events.MessageCreate, desc.info);
+
 client.login(TOKEN);

@@ -11,7 +11,7 @@ const openAi = new OpenAIApi(configuration);
 
 async function ask(prompt) {
   const response = await openAi.createCompletion({
-    model: "text-davinci-002",
+    model: "text-davinci-003",
     prompt,
     temperature: 0.7,
     max_tokens: 256,
@@ -25,9 +25,21 @@ async function ask(prompt) {
   return answer;
 }
 
+async function draw(prompt) {
+  const response = await openAi.createImage({
+    prompt
+  });
+
+  const image = await response.data.data[0].url;
+  // console.log(image);
+  return image;
+}
+
 module.exports = {
-  ask
+  ask,
+  draw
 }
 
 //test
 // ask("How many days are there in a week?")
+// draw("An elephant");
